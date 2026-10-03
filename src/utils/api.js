@@ -16,10 +16,9 @@ export const fetchNews = async (category = "", query = "") => {
     }
 
     const response = await axios.get(url);
-    console.log("API Response:", response.data); // 👈 check this
     return response.data.articles;
   } catch (error) {
     console.error("Error fetching news:", error);
-    return [];
+    throw error;
   }
 };
